@@ -7,8 +7,13 @@
 =size($width, $height)
     width: $width
     height: $height
+    
+//sizes image with respect to an aspect-ratio 8:5
+=img-size($width)
+    width: $width
+    height: $width * 0.625
 
-=flex($justify-centent: start, $align-items: start, $flex-direction: row, $grid-gap: 0rem)
+=flex($justify-centent: flex-start, $align-items: flex-start, $flex-direction: row, $grid-gap: 0rem)
     display: flex
     justify-content: $justify-centent
     align-items: $align-items

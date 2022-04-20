@@ -6,6 +6,10 @@
     top: 0
     left: 0
     background-color: rgba(0, 0, 0, 0.8)
+    
+    @supports (backdrop-filter: blur(10px))
+        animation: show-backdrop 150ms ease-out forwards
+
     z-index: 20
 
 .modal
@@ -14,11 +18,10 @@
     top: 50%
     left: 50%
 
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25)
     z-index: 30
-    animation: open 150ms ease-out forwards
+    animation: show-modal 150ms ease-out forwards
 
-@keyframes open
+@keyframes show-modal
     0% 
         opacity: 0
         transform: translate(-50%, -50%) scale(1.1)
@@ -26,3 +29,13 @@
     100%
         opacity: 1
         transform: translate(-50%, -50%) scale(1)
+
+@keyframes show-backdrop
+    0% 
+        backdrop-filter: blur(0)
+        -webkit-backdrop-filter: blur(0)
+    
+    100%
+        backdrop-filter: blur(10px)
+        -webkit-backdrop-filter: blur(10px)
+

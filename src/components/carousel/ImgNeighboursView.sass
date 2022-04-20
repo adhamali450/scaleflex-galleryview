@@ -1,0 +1,13 @@
+@import '../../common/generic'
+
+.neighbours-view
+    +flex(center, center)
+    grid-gap: 10px
+    .thumbnail 
+        +img-size(65px)
+        background-size: contain
+        cursor: pointer
+    .active
+        outline: 1px solid #999
+        outline-offset: 4px
+        pointer-events: none
