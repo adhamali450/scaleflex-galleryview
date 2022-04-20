@@ -19,12 +19,14 @@
         background-position: center
 
         transform-origin: center center
-        transition: transform 0.3s ease-in-out    
+        transition: transform 0.3s ease-in-out
+
+        background-color: $img-placeholder
     .gallery-view__item__overlay
         +absolute-cover()
         z-index: 2
 
-        background-color: rgba(0, 0, 0, 0.6)
+        background-color: rgba(2, 0, 0, 0.6)
 
         display: grid
         place-items: center
