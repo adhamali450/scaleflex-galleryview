@@ -9,18 +9,22 @@ import logo from "./assets/logo.png";
 const axios = require("axios").default;
 
 function App() {
-  let [images, setImages] = useState([{ uuid: "", name: "", url: "" }]);
+  let [images, setImages] = useState([
+    {
+      uuid: "f992d43f-33cb-55a6-a6e9-ee7399a50000",
+      name: "adrien-olichon-RCAhiGJsUUE-unsplash.jpg",
+      url: "https://scaleflex.cloudimg.io/v7/0.fe_task_static/pics/adrien-olichon-RCAhiGJsUUE-unsplash.jpg?vh=0b2b72",
+    },
+  ]);
   let [isCarouselShown, setIsCarouselShown] = useState(false);
 
   let [clickedImgIndex, setClickedImgIndex] = useState(0);
 
   // Fetch images on component mount
   useEffect(() => {
-    return () => {
-      axios.get(url).then((res) => {
-        setImages(res.data);
-      });
-    };
+    axios.get(url).then((res) => {
+      setImages(res.data);
+    });
   }, []);
 
   const showCarouselHandler = () => setIsCarouselShown(true);
