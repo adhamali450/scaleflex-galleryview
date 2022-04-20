@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from "react";
-import fetchImages from "./common/utils";
+import url from "./common/utils";
 import Gallery from "./components/Gallery";
 import Carousel from "./components/carousel/Carousel";
 
 import "./App.sass";
 import logo from "./assets/logo.png";
+
+const axios = require("axios").default;
 
 function App() {
   let [images, setImages] = useState([{ uuid: "", name: "", url: "" }]);
@@ -14,9 +16,10 @@ function App() {
 
   // Fetch images on component mount
   useEffect(() => {
-    return async () => {
-      const imagesFetched = await fetchImages();
-      setImages(imagesFetched);
+    return () => {
+      axios.get(url).then((res) => {
+        setImages(res.data);
+      });
     };
   }, []);
 
