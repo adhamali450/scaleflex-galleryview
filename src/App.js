@@ -16,8 +16,8 @@ function App() {
       url: "https://scaleflex.cloudimg.io/v7/0.fe_task_static/pics/adrien-olichon-RCAhiGJsUUE-unsplash.jpg?vh=0b2b72",
     },
   ]);
-  let [isCarouselShown, setIsCarouselShown] = useState(false);
 
+  let [isCarouselShown, setIsCarouselShown] = useState(false);
   let [clickedImgIndex, setClickedImgIndex] = useState(0);
 
   // Fetch images on component mount
