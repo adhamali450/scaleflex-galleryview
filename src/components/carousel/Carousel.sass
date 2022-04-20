@@ -1,0 +1,47 @@
+@import '../../common/generic'
+
+.carousel
+    --img-width: 800px
+    +flex(center, center)
+    .carousel__img-container
+        position: relative
+        box-shadow: 0 0 40px rgba(0, 0, 0, 0.5)
+        .carousel__img
+            background-size: 100% 100%
+            background-position: center
+            +size(calc(1.6 * var(--img-height)), var(--img-height))
+            +size(var(--img-width), calc(var(--img-width) * 0.625))
+        .carosuel__img-details
+            position: absolute
+            bottom: 0
+
+            width: 100%
+
+            padding: 0.5rem 0
+            background-color: rgba(0, 0, 0, 0.8)
+            color: #fff
+
+            display: grid
+            grid-template-columns: 1fr 3fr 1fr
+            .carousel__img-title
+                grid-column: 2/3
+                justify-self: center
+            .carousel__img-relative-index
+                grid-column: 3/4
+                justify-self: end
+                margin-right: 1rem
+                font-weight: bold
+    .carousel__action
+        position: absolute
+        +flex(space-between)
+        width: 120%
+
+@media screen and (max-width: 1024px)
+    .carousel
+        --img-width: 600px
+
+@media screen and (max-width: 768px)
+    .carousel
+        --img-width: 100vw
+        .carousel__action
+            width: 90%

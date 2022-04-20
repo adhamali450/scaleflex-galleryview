@@ -1,0 +1,36 @@
+@import '../common/generic'
+
+.gallery-view__item
+    position: relative
+    cursor: pointer
+    overflow: hidden
+    @media(hover: hover) and (pointer: fine)
+        &:hover
+            .gallery-view__item__overlay
+                opacity: 1
+            .gallery-view__item__img
+                transform: scale(1.05)
+
+    .gallery-view__item__img
+        width: 100%
+        height: 350px
+
+        background-size: cover
+        background-position: center
+
+        transform-origin: center center
+        transition: transform 0.3s ease-in-out    
+    .gallery-view__item__overlay
+        +absolute-cover()
+        z-index: 2
+
+        background-color: rgba(0, 0, 0, 0.6)
+
+        display: grid
+        place-items: center
+
+        opacity: 0
+        transition: opacity 0.3s ease-in-out
+
+        img
+            +usize(40px)

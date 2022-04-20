@@ -1,0 +1,30 @@
+@import '../../common/generic'
+
+.btn-chevron
+    --size: 55px
+    +usize(var(--size))
+
+    border: none
+    border-radius: 999px
+
+    cursor: pointer
+
+    background-color:  #FF5A49
+
+    background-size: calc( var(--size) - 20px )
+    background-repeat: no-repeat
+    background-position: center
+
+    @media(hover: hover) and (pointer: fine)
+        &:hover
+            background-color:  darken(#FF5A49, 7%)
+    &:active
+        background-color:  darken(#FF5A49, 15%)
+
+.disabled
+    pointer-events: none
+    opacity: 0.3
+
+@media screen and (max-width: 1024px)
+    .btn-chevron
+        --size: 40px

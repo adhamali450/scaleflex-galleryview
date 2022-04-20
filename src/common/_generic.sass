@@ -1,0 +1,48 @@
+// Frequently used mixins and generic styling
+
+=usize($uniform-size)
+    width: $uniform-size
+    height: $uniform-size
+
+=size($width, $height)
+    width: $width
+    height: $height
+
+=flex($justify-centent: start, $align-items: start, $flex-direction: row, $grid-gap: 0rem)
+    display: flex
+    justify-content: $justify-centent
+    align-items: $align-items
+    flex-direction: $flex-direction
+    grid-gap: $grid-gap
+
+=grid-center()
+    display: grid
+    place-items: center
+
+=absolute-center()
+    position: absolute
+    top: 50%
+    left: 50%
+    transform: translate(-50%, -50%)
+
+=absolute-cover()
+    position: absolute
+    top: 0
+    left: 0
+    +size(100%, 100%)
+
+=badge($bg, $fg: rgba(0, 0, 0, 0.7))
+    display: inline-block
+    padding: 6px 15px
+    border-radius: 999px
+    background-color: $bg
+    color: $fg
+
+
+*, *::before, *::after
+    margin: 0
+    padding: 0
+
+    -webkit-box-sizing: border-box
+    box-sizing: border-box
+

@@ -1,0 +1,40 @@
+@import './common/generic'
+
+$padding: 3rem
+
+.App
+    width: 100vw
+    height: 100vh
+    background-color: #000
+    color: #fff
+    overflow-x: hidden
+    position: relative
+.container
+    width: 90%
+    max-width: 2300px
+    margin: 0 auto
+
+header
+    padding: $padding 0
+    +flex(center)
+    .logo
+        +flex(center, flex-end, row, 1rem)
+        flex-wrap: wrap
+        img
+            height: 75px
+        span
+            +badge(#3C189D, #fff)
+            font-size: 120%
+            font-weight: bold
+
+main
+    padding-bottom: $padding
+
+@media screen and (max-width: 768px)
+    header
+        justify-content: flex-start
+        .logo
+            img
+                height: 50px
+            span
+                font-size: 90%

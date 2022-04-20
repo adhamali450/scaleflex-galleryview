@@ -1,0 +1,28 @@
+@import '../../common/generic'
+
+.backdrop
+    +size(100vw, 100vh)
+    position: fixed
+    top: 0
+    left: 0
+    background-color: rgba(0, 0, 0, 0.8)
+    z-index: 20
+
+.modal
+    position: absolute
+    transform: translate(-50%, -50%)
+    top: 50%
+    left: 50%
+
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25)
+    z-index: 30
+    animation: open 150ms ease-out forwards
+
+@keyframes open
+    0% 
+        opacity: 0
+        transform: translate(-50%, -50%) scale(1.1)
+    
+    100%
+        opacity: 1
+        transform: translate(-50%, -50%) scale(1)

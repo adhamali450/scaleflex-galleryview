@@ -1,0 +1,11 @@
+@import '../common/generic'
+
+.gallery-view 
+    display: grid
+    grid-template-columns: repeat(auto-fill, minmax(400px, 1fr))
+    grid-gap: 0.5rem
+
+    
+@media screen and (max-width: 450px)
+    .gallery-view 
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr))
