@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { url, fetchChached } from "./common/utils";
+import { url, fetchChached, cache } from "./common/utils";
 import Gallery from "./components/Gallery";
 import Carousel from "./components/carousel/Carousel";
 
@@ -9,12 +9,10 @@ import logo from "./assets/logo.png";
 function App() {
   console.clear();
 
-  let [images, setImages] = useState([{ url: "", name: "", uuid: "" }]);
+  let [images, setImages] = useState([]);
 
   let [isCarouselShown, setIsCarouselShown] = useState(false);
   let [clickedImgIndex, setClickedImgIndex] = useState(0);
-
-  console.log();
 
   //fetching on component mount
   useEffect(() => {
@@ -27,6 +25,8 @@ function App() {
         else res.json().then((json) => setImages(json));
       });
   }, []);
+
+  cache(url);
 
   const showCarouselHandler = () => setIsCarouselShown(true);
   const hideCarouselHandler = () => setIsCarouselShown(false);

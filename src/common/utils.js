@@ -10,6 +10,7 @@ export const fetch = async (url) => await axios.get(url);
 export const cache = async (resource) => {
   const cache = await caches.open(cacheName);
   console.log(`Caching: ${resource}`);
+
   cache.add(resource);
 };
 
@@ -20,7 +21,6 @@ export const fetchChached = async (resource) => {
 
   // If found in cache: return
   if (result) {
-    console.log(result);
     return result;
   }
 
@@ -28,6 +28,5 @@ export const fetchChached = async (resource) => {
   const response = await fetch(resource);
   await cache(response.config.url);
 
-  console.log(response);
   return response;
 };
