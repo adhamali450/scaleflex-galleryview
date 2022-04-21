@@ -1,30 +1,31 @@
 import React, { useEffect, useState } from "react";
-import url from "./common/utils";
+import { url, fetchChached } from "./common/utils";
 import Gallery from "./components/Gallery";
 import Carousel from "./components/carousel/Carousel";
 
 import "./App.sass";
 import logo from "./assets/logo.png";
 
-const axios = require("axios").default;
-
 function App() {
-  let [images, setImages] = useState([
-    {
-      uuid: "f992d43f-33cb-55a6-a6e9-ee7399a50000",
-      name: "adrien-olichon-RCAhiGJsUUE-unsplash.jpg",
-      url: "https://scaleflex.cloudimg.io/v7/0.fe_task_static/pics/adrien-olichon-RCAhiGJsUUE-unsplash.jpg?vh=0b2b72",
-    },
-  ]);
+  console.clear();
+
+  let [images, setImages] = useState([{ url: "", name: "", uuid: "" }]);
 
   let [isCarouselShown, setIsCarouselShown] = useState(false);
   let [clickedImgIndex, setClickedImgIndex] = useState(0);
 
-  // Fetch images on component mount
+  console.log();
+
+  //fetching on component mount
   useEffect(() => {
-    axios.get(url).then((res) => {
-      setImages(res.data);
-    });
+    fetchChached(url)
+      // if we got our images through <data> property of the response,
+      // the response was from HTTP request (Data not cached).
+      // If data is cached we access it through <.json()> of the response.
+      .then((res) => {
+        if (res.data) setImages(res.data);
+        else res.json().then((json) => setImages(json));
+      });
   }, []);
 
   const showCarouselHandler = () => setIsCarouselShown(true);
