@@ -29,8 +29,7 @@ npm run test
 
 👤 **Adham Ali**
 
-- Website: adhamali.tech
-- Github: [@adhamali450](https://github.com/adhamali450)
+- Website: [adhamali.tech](https://adhamali.tech)
 - LinkedIn: [@adhamali450](https://linkedin.com/in/adhamali450)
 
 ## Show your support
